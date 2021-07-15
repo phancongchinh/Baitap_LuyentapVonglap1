@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<h2>Bài 8</h2>
+<button type="button" onclick="play()">Click to play!</button>
+
+<script>
+    function play() {
+        alert("Enter the interval that you wanna to initialize the random number!");
+        let inputMin = prompt("It's from:");
+        let inputMax = prompt("To:");
+
+        let min = parseInt(inputMin);
+        let max = parseInt(inputMax);
+
+        if (!isNaN(min) || !isNaN(max)) {
+            //Generate a random interger between min and max ?!
+            let theRandomNumber = Math.floor(Math.random() * (max + 1 - min)) + min;
+            let guessNum = parseInt(prompt("A random number between " + min + " and " + max + " initialized! \r\n Make a guess! You have now 3 attemps. "));
+            while (isNaN(guessNum)) {
+                guessNum = parseInt(prompt("The number you've entered is invalid. Enter another!"));
+            }
+
+            for (let i = 2; i > 0; i--) {
+                if (guessNum === theRandomNumber) {
+                    alert("Exactly. You're brilliant!");
+                    playAgain();
+                    return;
+                } else if (guessNum > theRandomNumber) {
+                    alert("Oh, your number is too large! You have " + i + " more attemp(s).");
+                } else {
+                    alert("Your number is too small! You have " + i + " more attemp(s).");
+                }
+                guessNum = parseInt(prompt("Make another guess!"));
+            }
+            if (guessNum === theRandomNumber) {
+                alert("Exactly. You're brilliant!");
+            } else {
+                alert("You lose!");
+                playAgain();
+            }
+        } else if (confirm("Input invalid. Wannatry again?")) {
+            play();
+        }
+    }
+
+    function playAgain() {
+        if (confirm("Do you wanna play again?")) {
+            play();
+        } else {
+            alert("Ok, bye!");
+        }
+    }
+</script>
+
+</body>
+</html>

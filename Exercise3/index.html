@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<h2>Bài 3</h2>
+
+Giả sử dãy Fibonacci bắt đầu từ 1 và 2. <br>
+
+
+<label for="inputN">Bạn muốn in ra bao nhiêu phần tử trong dãy?</label> <br>
+<input id="inputN" type="number"> <br><br>
+
+<button type="button" onclick="fibonacci()">Click me to start!</button>
+
+<p id="result">The result will be shown here!</p>
+
+<script>
+    function fibonacci() {
+        let number = parseInt(document.getElementById("inputN").value);
+        let fib1 = 1, fib2 = 1, fibNext;
+        let result = "";
+        for (let i = 1; i <= number; i++) {
+            result += fib1 + "<br>";
+            fibNext = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = fibNext;
+        }
+
+        document.getElementById("result").innerHTML = result;
+    }
+
+    fibonacci();
+
+</script>
+
+</body>
+</html>

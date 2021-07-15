@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<h2>Bài 2</h2>
+
+<button type="button" onclick="enterTemp()">Click to start!</button>
+
+<script>
+    function enterTemp() {
+        let inputTemp;
+        do {
+            inputTemp = parseInt(prompt("Enter temperature!"));
+            if (inputTemp < 20) alert("Temprature too low! Turn it up !");
+            else if (inputTemp >100) {
+                alert("Temprature too high! Turn it down !");
+            } else {
+                alert("Temperature OK !");
+                break;
+            }
+        } while (inputTemp < 20 || inputTemp > 100);
+    }
+</script>
+
+</body>
+</html>

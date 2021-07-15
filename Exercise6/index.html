@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<h2>Bài 6</h2>
+<label for="howMany">Tính tổng m số tự nhiên đầu tiên:</label> <br>
+<input type="number" id="howMany"> <br><br>
+
+<label for="divisibleBy">Chúng thỏa mãn điều kiện chia hết cho:</label> <br>
+<input type="number" id="divisibleBy"> <br><br>
+
+<label for="fromNum">Bắt đầu tính kể từ số:</label> <br>
+<input type="number" id="fromNum"> <br><br>
+
+<button type="button" onclick="sumUp()">Click to start!</button>
+
+<p id="numList">The numbers satisfying the condition will be shown here!</p>
+
+<p id="sum">The sum of all numbers listed above is shown here.</p>
+
+<script>
+    function sumUp() {
+
+        function isDivisibleBy(divident,divisor) {
+            return (divident % divisor === 0);
+        }
+
+        let howMany = parseInt(document.getElementById("howMany").value);
+        let divisibleBy = parseInt(document.getElementById("divisibleBy").value);
+        let fromNum = parseInt(document.getElementById("fromNum").value);
+        let numList ="";
+        let sum =0;
+
+        if ((howMany<0) || (divisibleBy<0) || (fromNum<0)) {
+            alert("Input invalid. Enter other numbers.");
+            return;
+        } else {
+            for (let count = 0; count < howMany;) {
+                while (count < howMany) {
+                    if (isDivisibleBy(fromNum,divisibleBy)) {
+                        numList += fromNum + "<br>";
+                        sum += fromNum;
+                        count++;
+                    }
+                    fromNum++ ;
+                }
+            }
+        }
+
+        document.getElementById("numList").innerHTML = numList;
+        document.getElementById("sum").innerHTML = sum.toString();
+    }
+
+
+
+</script>
+
+</body>
+</html>

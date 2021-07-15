@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<h2>Bài 4</h2>
+
+<button type="button" onclick="getFirstFibo5()">Click to start !</button>
+
+<p id="result">The result will be shown here!</p>
+
+<script>
+  function getFirstFibo5() {
+    function isDivisibleBy5(num) {
+      return num % 5 === 0;
+    }
+
+    let fib1=1, fib2=2; let fibNext;
+
+    do {
+      fibNext = fib1 + fib2;
+      fib1 = fib2;
+      fib2 = fibNext;
+    } while (!isDivisibleBy5(fibNext))
+
+    document.getElementById("result").innerHTML = fibNext;
+  }
+
+
+</script>
+
+</body>
+</html>

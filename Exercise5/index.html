@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<h2> Bài 5</h2>
+<label for="howMany">Tính tổng bao nhiêu số Fibonacci?</label> <br>
+<input type="number" id="howMany">
+<br><br>
+<label for="fromNum">Bắt đầu từ?</label> <br>
+<input type="number" id="fromNum">
+
+<br><br>
+<button type="button" onclick="sumUp()">Click để bắt đầu</button>
+
+<p id="showFibs">The Fibonacci numbers will be shown here.</p>
+<p id="sum">The sum will be shown here.</p>
+
+<script>
+    function sumUp() {
+        let showResult =""; let sum=0;
+        let fib1 = 1, fib2 =2, fibNext;
+        let count = document.getElementById("howMany").value;
+        let fromNum = document.getElementById("fromNum").value;
+
+// 1 2 3 5 8 13 21
+
+        do {
+            fibNext = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = fibNext;
+        } while (fibNext <= fromNum);
+
+        for (let i = 1; i <= count ; i++) {
+            fibNext = fib1 + fib2;
+            showResult += fib1 + "<br>";
+            sum += fib1;
+            fib1 = fib2;
+            fib2 = fibNext;
+        }
+
+        document.getElementById("showFibs").innerHTML = count + " số Fibonacci tính từ " + fromNum + " là: <br>" + showResult;
+
+        document.getElementById("sum").innerHTML = "Tổng của chúng nó là: " + sum;
+    }
+
+
+</script>
+
+
+</body>
+</html>

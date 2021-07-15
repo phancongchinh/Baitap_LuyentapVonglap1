@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<h2>Bài 7</h2>
+
+<button type="button" onclick="printFizzBuzz()">Click to start</button>
+
+<p id="result">The result will be shown here!</p>
+
+<script>
+    function printFizzBuzz() {
+        let result = "";
+        for (let i = 1; i <= 100; i++) {
+            if ( i%3!==0 && i%5!==0 ) {
+                result += i + "<br>";
+            } else if (i%3===0) {
+                if (i%5===0) {
+                    result += "FizzBuzz <br>";
+                } else {
+                    result += "Fizz <br>";
+                }
+            } else {
+                result += "Buzz <br>";
+            }
+        }
+    document.getElementById("result").innerHTML = result;
+    }
+</script>
+
+</body>
+</html>
